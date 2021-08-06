@@ -1,9 +1,33 @@
 import React from 'react'
+import '../App.css'
 
 export default function JumboSection() {
     return (
-        <div>
-            <h2>this is the jumbo section</h2>
+        <div id="jumbotron-background" style={jumbotronBackground}>
+            <h1 id="moodbooksLogo" style = {moodbooksLogo}>Moodbooks</h1>
+            <h2 id="whatToReadNext">Discover what to read next ...</h2>
+            <div className="search-container">
+                <input type="text" id ="query-area"
+                placeholder="type the title of the book you want to read"/>
+                <button id="submit">&#x27A1;</button>
+            </div>
         </div>
     )
 }
+
+const jumbotronBackground = {
+    /*background:linear-gradient(rgb(137, 222, 255),rgb(137, 238, 238));*/
+    height:'auto',
+    textAlign: 'center',
+    color: 'white',
+    fontFamily: 'monospace, Lucida Console, Courier',
+    marginBottom: 15,
+
+}
+const moodbooksLogo = {
+    fontFamily: 'SweetHipster, monospace',
+    fontWeight: 'bolder',
+    fontSize: 64,
+    marginTop: 0,
+    textshadow: '5px 5px 1px #07bccc, 10px 10px 2px #f40468, 15px 15px 10px #482896'
+} 

@@ -3,13 +3,20 @@ import React from 'react'
 export default function Navbar() {
     return (
         <div>
-            <ul style={ulStyles}>
-                <li style={liStyle}><a style={liAnchorStyles} href="#">Home</a></li>
-                <li style={liStyle}><a style={liAnchorStyles} href="#">About</a></li>
-                <li style={liStyle}><a style={liAnchorStyles} href="#">contact</a></li>
-            </ul>
+            <nav style = {navStyles}>
+                <ul style={ulStyles}>
+                    <li style={liStyle}><a style={liAnchorStyles} >Home</a></li>
+                    <li style={liStyle}><a style={liAnchorStyles} >About</a></li>
+                    <li style={liStyle}><a style={liAnchorStyles} >contact</a></li>
+                </ul>
+            </nav>
         </div>
     )
+}
+const navStyles ={
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between'
 }
 
 const ulStyles = {
