@@ -11,7 +11,6 @@ export default function JumboSection(props) {
                 placeholder="type the title of the book you want to read"/>
                 <button id="submit" onClick={props.search}>&#x1f50D;</button>
             </div>
-            <h3>{props.title}</h3>
         </div>
     )
 }
