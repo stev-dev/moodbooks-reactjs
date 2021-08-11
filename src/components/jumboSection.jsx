@@ -7,17 +7,19 @@ export default function JumboSection(props) {
 
     useEffect(() => {
         const listener = e => {
-            if (e.code === "Enter" || e.code === "NumpadEnter") {
-            e.preventDefault();
-            props.search()
-            history.push("/book")
+            if(document.getElementById("query-area").value){
+                if (e.code === "Enter" || e.code === "NumpadEnter") {
+                e.preventDefault();
+                props.search()
+                history.push("/book")
+                }
             }
         }
         document.getElementById("query-area").addEventListener("keydown", listener);
         return () => {
             document.removeEventListener("keydown", listener);
         };
-    }, [props]);
+    }, [props, history]);
 
 
 
@@ -26,16 +28,14 @@ export default function JumboSection(props) {
             <h1 id="moodbooksLogo" style = {moodbooksLogo}>Moodbooks</h1>
             <h2 id="whatToReadNext">Discover what to read next ...</h2>
             <div className="search-container">
-                <input type="text" id ="query-area"
-                placeholder="type the title of the book you want to read"/>
-                <button id="submit" onClick={props.search}>&#x1f50D;</button>
+                <input type="text" id ="query-area" placeholder="type the title of the book you want to read"/>
+                {/*<button id="submit" onClick={props.search}>&#x1f50D;</button>*/}
             </div>
         </div>
     )
 }
 
 const jumbotronBackground = {
-    /*background:linear-gradient(rgb(137, 222, 255),rgb(137, 238, 238));*/
     height:'auto',
     textAlign: 'center',
     color: 'white',
