@@ -1,13 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
     return (
         <div>
             <nav style = {navStyles}>
                 <ul style={ulStyles}>
-                    <li style={liStyle}><a style={liAnchorStyles} >Home</a></li>
-                    <li style={liStyle}><a style={liAnchorStyles} >About</a></li>
-                    <li style={liStyle}><a style={liAnchorStyles} >contact</a></li>
+                    <li style={liStyle}><Link to="./" style={liAnchorStyles} >Home</Link></li>
+                    <li style={liStyle}><Link to="./" style={liAnchorStyles} >About</Link></li>
+                    <li style={liStyle}><Link to="./" style={liAnchorStyles} >contact</Link></li>
                 </ul>
             </nav>
         </div>

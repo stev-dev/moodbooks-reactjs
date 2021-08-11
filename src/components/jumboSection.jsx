@@ -1,7 +1,26 @@
-import React from 'react'
+import React, {useEffect}from 'react'
+import { useHistory } from 'react-router';
 import '../App.css'
 
 export default function JumboSection(props) {
+    const history = useHistory()
+
+    useEffect(() => {
+        const listener = e => {
+            if (e.code === "Enter" || e.code === "NumpadEnter") {
+            e.preventDefault();
+            props.search()
+            history.push("/book")
+            }
+        }
+        document.getElementById("query-area").addEventListener("keydown", listener);
+        return () => {
+            document.removeEventListener("keydown", listener);
+        };
+    }, [props]);
+
+
+
     return (
         <div id="jumbotron-background" style={jumbotronBackground}>
             <h1 id="moodbooksLogo" style = {moodbooksLogo}>Moodbooks</h1>
