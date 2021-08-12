@@ -5,7 +5,7 @@ import './App.css';
 
 import Home from './components/Home';
 import SingleBook from './components/singleBook';
-
+import BooksBySubject from './components/BooksBySubject';
 
 function App() {
 
@@ -43,6 +43,14 @@ function App() {
         <Switch>
           <Route exact path="/" render ={()=><Home search = {goSearch}/>}/>
           <Route path="/book" render={()=><SingleBook 
+          title ={booktitle}
+          author = {bookAuthor}
+          publishYear = {firstPublishYear} 
+          subject = {subject}
+          isbn = {bookIsbn}
+          editionKey = {bookeditionKey}/>}/>
+
+          <Route path="/booksBySubject" render={()=><BooksBySubject 
           title ={booktitle}
           author = {bookAuthor}
           publishYear = {firstPublishYear} 
