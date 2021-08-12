@@ -4,18 +4,17 @@ import {Switch, Route, BrowserRouter as Router} from 'react-router-dom'
 import './App.css';
 
 import Home from './components/Home';
-import SingleBook from './components/singleBook';
+import SingleBook from './components/SingleBook';
 import BooksBySubject from './components/BooksBySubject';
 
 function App() {
-
   const [booktitle, setBooktitle] = useState("")
   const [bookAuthor, setBookAuthor] = useState("")
   const [firstPublishYear, setFirstPublishYear] = useState("")
   const [subject, setSubject] = useState("") 
   const [bookIsbn, setBookIsbn] = useState("")
   const [bookeditionKey, setBookeditionKey] = useState("")
-  const [coverId, setCoverId] = useState("")
+  const [subjectsSearchData, setSubjectsSearchData] = useState()
 
   const makeQueryCallable = query => query.trim().split(" ").join("+")
 
@@ -31,17 +30,33 @@ function App() {
       setSubject(data.docs[0].subject)
       setBookIsbn(data.docs[0].isbn[0])
       setBookeditionKey(data.docs[0].cover_edition_key)
-      setCoverId(data.docs[0].covers)
     }) 
     searchBar.value = ""
   }
-  console.log("the whole data is: ..... "+coverId)
+
+  function makeCategoryQueryCallable (str){
+    return str.split(" ").join("_")
+  }
+  function categorySearch (query){
+    // let theCategorySelected = event.currentTarget.innerText.toLowerCase()
+    // let finalquery = makeCategoryQueryCallable(theCategorySelected)
+    let finalquery = makeCategoryQueryCallable(query.toLowerCase())
+
+    fetch("https://openlibrary.org/subjects/"+finalquery+".json")
+    .then(res => res.json())//parse the result as json
+    .then(data => {
+      setSubjectsSearchData(data)
+    })
+  }
 
   return (
     <div>
       <Router>
         <Switch>
-          <Route exact path="/" render ={()=><Home search = {goSearch}/>}/>
+          <Route exact path="/" render ={()=><Home 
+          search = {goSearch}
+          categorySearch = {categorySearch}
+          />}/>
           <Route path="/book" render={()=><SingleBook 
           title ={booktitle}
           author = {bookAuthor}
@@ -51,6 +66,7 @@ function App() {
           editionKey = {bookeditionKey}/>}/>
 
           <Route path="/booksBySubject" render={()=><BooksBySubject 
+          booksData = {subjectsSearchData}
           title ={booktitle}
           author = {bookAuthor}
           publishYear = {firstPublishYear} 

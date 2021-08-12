@@ -1,7 +1,13 @@
-import React from 'react'
+import React, {useEffect, useState}from 'react'
 import { Link } from 'react-router-dom'
 
-export default function bookHeader(props) {
+export default function BookHeader(props) {
+    const [properties, setProperties] = useState(props)
+
+    useEffect(props => {
+        setProperties(props)
+    }, [props])
+
     return (
         <div>
             <header style={headerItems}>
