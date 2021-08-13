@@ -3,10 +3,11 @@ import BookCard from './BookCard'
 import logo from '../res/circle-physic.gif'
 
 export default function SingleBook(props) {
+
     return (
         props.title === "" ? 
         <div style={{textAlign:'center', marginTop:'15%'}}>
-            <img src={logo} alt="loading..." style={{maxWidth:'70px',maxHeight:'70px'}}/>
+            <img src={logo} alt="loading..." style={{maxWidth:'90px',maxHeight:'90px'}}/>
         </div> 
         : 
         <div>

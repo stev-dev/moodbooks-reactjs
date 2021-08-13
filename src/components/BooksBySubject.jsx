@@ -1,6 +1,7 @@
 import React from 'react'
 import BookCard from './BookCard'
 import BookHeader from './BookHeader'
+import logo from '../res/circle-physic.gif'
 
 export default function BooksBySubject(props) {
         
@@ -8,7 +9,11 @@ export default function BooksBySubject(props) {
     // const bookLinkOpenLibrary = `https://openlibrary.org/books/${bookData.editionKey}`
     console.log(props)
     return (
-        props.booksData === undefined ? <h2>khdamin 3la books data h_h</h2> : 
+        props.booksData === undefined ? 
+        <div style={{textAlign:'center', marginTop:'15%'}}>
+            <img src={logo} alt="loading..." style={{maxWidth:'90px',maxHeight:'90px'}}/>
+        </div> 
+        : 
 
         <div>
             <BookHeader subject = {props.booksData.works[0].subject}/>
