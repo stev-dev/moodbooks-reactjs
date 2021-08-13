@@ -3,7 +3,8 @@ import BookCard from './BookCard'
 
 
 export default function SingleBook(props) {
-   return (
+    return (
+        props.title === "" ? <p>loading...</p> : 
         <div>
             <BookHeader subject = {props.subject}/>
             <BookCard custumBookCardStyle = {cardStyleSingleBook}
