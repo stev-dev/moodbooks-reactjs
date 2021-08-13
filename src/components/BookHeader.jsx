@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function BookHeader(props) {
     const [properties, setProperties] = useState(props)
 
-    useEffect(props => {
+    useEffect(() => {
         setProperties(props)
     }, [props])
 
@@ -20,9 +20,9 @@ export default function BookHeader(props) {
                 <div id="rightToHelpCenterLogo" style={{width:'80px'}}></div>
             </header>
             <h3 style={BookSubjectStyles}>subjects: 
-                <span id="subject">{props.subject[0]}, </span>
-                <span id="subject">{props.subject[1]}, </span>
-                <span id="subject">{props.subject[2]} </span>
+                <span id="subject">{properties.subject[0]}, </span>
+                <span id="subject">{properties.subject[1]}, </span>
+                <span id="subject">{properties.subject[2]} </span>
             </h3>
         </div>
     )

@@ -1,44 +1,31 @@
-import React, {useEffect, useState}from 'react'
+import React from 'react'
 import BookCard from './BookCard'
 import BookHeader from './BookHeader'
 
 export default function BooksBySubject(props) {
-    const [bookData, setBookData] = useState(props)
-    
-    useEffect(()=>{
-        setBookData(props)
-    },[props])
-
-
-    const booksData = props.booksData
-    console.log("inside booksBySubject")
-    console.log(booksData)
         
     // const imgSrc =  `https://covers.openlibrary.org/b/isbn/${bookData.isbn}-M.jpg`
     // const bookLinkOpenLibrary = `https://openlibrary.org/books/${bookData.editionKey}`
+    console.log(props)
     return (
+        props.booksData === undefined ? <h2>khdamin 3la books data h_h</h2> : 
+
         <div>
-            <BookHeader subject = {booksData.works.subject}/>
+            <BookHeader subject = {props.booksData.works[0].subject}/>
+
             <div style={booksCardHolder}>
-                {booksData.works.map((elem, indx) => 
+                {props.booksData.works.map((elem, indx) => 
                 <BookCard key = {indx} custumBookCardStyle = {cardStylemultipleBooks}
                 title ={elem.title}
-                author = {bookData.author}
-                publishYear = {bookData.publishYear}
-                isbn = {bookData.isbn}
-                editionKey = {bookData.editionKey}/>
+                author = {elem.authors.name}
+                editionKey = {"need further work"}
+                publishYear = {"need further work"}
+                isbn = {"need further work"}/>
                 )}
             </div>
         </div>
     )
 }
-
-// setBooktitle(data.docs[0].title)
-// setBookAuthor(data.docs[0].author_name[0])
-// setFirstPublishYear(data.docs[0].first_publish_year)
-// setSubject(data.docs[0].subject)
-// setBookIsbn(data.docs[0].isbn[0])
-// setBookeditionKey(data.docs[0].cover_edition_key)
 
 const booksCardHolder ={
     display : 'flex',

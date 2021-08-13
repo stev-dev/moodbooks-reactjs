@@ -43,7 +43,7 @@ function App() {
     let finalquery = makeCategoryQueryCallable(query.toLowerCase())
 
     fetch("https://openlibrary.org/subjects/"+finalquery+".json")
-    .then(res => res.json())//parse the result as json
+    .then(res => res.json())
     .then(data => {
       setSubjectsSearchData(data)
     })
@@ -66,13 +66,7 @@ function App() {
           editionKey = {bookeditionKey}/>}/>
 
           <Route path="/booksBySubject" render={()=><BooksBySubject 
-          booksData = {subjectsSearchData}
-          title ={booktitle}
-          author = {bookAuthor}
-          publishYear = {firstPublishYear} 
-          subject = {subject}
-          isbn = {bookIsbn}
-          editionKey = {bookeditionKey}/>}/>
+          booksData = {subjectsSearchData}/>}/>
         </Switch>
       </Router>
     </div>
