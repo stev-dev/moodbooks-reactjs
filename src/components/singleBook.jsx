@@ -1,10 +1,14 @@
 import BookHeader from './BookHeader'
 import BookCard from './BookCard'
-import logo from '../res/Book.gif'
+import logo from '../res/circle-physic.gif'
 
 export default function SingleBook(props) {
     return (
-        props.title === "" ? <img src={logo} alt="loading..." style={{margin: '10px auto'}}/>: 
+        props.title === "" ? 
+        <div style={{textAlign:'center', marginTop:'15%'}}>
+            <img src={logo} alt="loading..." style={{maxWidth:'70px',maxHeight:'70px'}}/>
+        </div> 
+        : 
         <div>
             <BookHeader subject = {props.subject}/>
             <BookCard custumBookCardStyle = {cardStyleSingleBook}
