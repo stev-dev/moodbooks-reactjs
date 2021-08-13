@@ -1,24 +1,29 @@
 import React from 'react'
 import tags from '../helper'
-import { useHistory } from 'react-router-dom'
+import { useEffect } from 'react'
+import { useHistory } from 'react-router'
 
 export default function BookTags(props) {
-
     const history = useHistory()
 
-    // useEffect(()=>{
-    // },[props, history])
-
-    document.addEventListener("DOMContentLoaded", function () {
+    const attachEventListeners = () => {
         for (let i = 0; i<18; i++){
             let tagi = "tag"+i
             let currentElem = document.getElementById(tagi)
-            document.getElementById(tagi).addEventListener("click", () => {
+            currentElem.addEventListener("click", () => {
                 console.log("clicked from the tag eventListener")
                 props.categorySearch(currentElem.innerHTML)
                 history.push('/booksBySubject')
             })
         }
+    }
+    
+    useEffect(()=>{
+        attachEventListeners()
+    },[attachEventListeners])
+
+    document.addEventListener("DOMContentLoaded", function () {
+        attachEventListeners()
     })
 
     return (
