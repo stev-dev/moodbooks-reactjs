@@ -9,7 +9,6 @@ export default function Navbar() {
                     <li style={liStyle}><Link to="./" style={liAnchorStyles} >Home</Link></li>
                     <li style={liStyle}><Link to="./" style={liAnchorStyles} >About</Link></li>
                     <li style={liStyle}><Link to="./" style={liAnchorStyles} >contact</Link></li>
-                    <li style={liStyle}><Link to="./booksBySubject" style={liAnchorStyles} >testBooksBySubject</Link></li>
                 </ul>
             </nav>
         </div>
