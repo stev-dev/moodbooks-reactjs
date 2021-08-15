@@ -11,7 +11,6 @@ export default function BookTags(props) {
             let tagi = "tag"+i
             let currentElem = document.getElementById(tagi)
             currentElem.addEventListener("click", () => {
-                console.log("clicked from the tag eventListener")
                 props.categorySearch(currentElem.innerHTML)
                 history.push('/booksBySubject')
             })

@@ -2,6 +2,7 @@ import React from 'react'
 import BookCard from './BookCard'
 import BookHeader from './BookHeader'
 import logo from '../res/circle-physic.gif'
+import { useEffect, useState } from 'react'
 
 export default function BooksBySubject(props) {
 
@@ -13,21 +14,30 @@ export default function BooksBySubject(props) {
     //     console.log(data.docs[0].isbn[0])
     //     return data.docs[0].isbn[0]
     // }
-    console.log(props)
+    const [savedprops, setSavedprops] = useState(props)
+
+    useEffect(()=>{
+        setSavedprops(props)
+    },[props])
+
+    //console.log(props.booksData.works[0])
+    console.log(savedprops)
+
 
     return (
-        props.booksData === undefined ? 
+        props.booksData === undefined? 
         <div style={{textAlign:'center', marginTop:'15%'}}>
             <img src={logo} alt="loading..." style={{maxWidth:'90px',maxHeight:'90px'}}/>
         </div> 
         : 
 
         <div>
-            <BookHeader subject = {props.booksData.works[0].subject} />
+            <BookHeader worksToGetSubjects = {props.booksData.works} />
 
             <div style={booksCardHolder}>
                 {props.booksData.works.map((elem, indx) => 
                 <BookCard key = {indx} custumBookCardStyle = {cardStylemultipleBooks}
+                olid = {elem.cover_edition_key}
                 title ={elem.title}
                 author = {elem.authors[0].name}
                 editionKey = {elem.cover_edition_key}

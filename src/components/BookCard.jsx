@@ -10,7 +10,13 @@ export default function SingleBook(props) {
         setBookData(props)
     },[props])
         
-    const imgSrc =  `https://covers.openlibrary.org/b/isbn/${bookData.isbn}-M.jpg`
+    let imgSrc 
+    if(bookData.isbn === undefined){
+        imgSrc = `http://covers.openlibrary.org/b/olid/${bookData.olid}-M.jpg`
+    }else{
+        imgSrc = `https://covers.openlibrary.org/b/isbn/${bookData.isbn}-M.jpg`
+    }
+     
     const bookLinkOpenLibrary = `https://openlibrary.org/books/${bookData.editionKey}`
     return (
         <div>

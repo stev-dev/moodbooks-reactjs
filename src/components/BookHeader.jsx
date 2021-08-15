@@ -20,9 +20,9 @@ export default function BookHeader(props) {
                 <div id="rightToHelpCenterLogo" style={{width:'80px'}}></div>
             </header>
             <h3 style={BookSubjectStyles}>subjects: 
-                <span id="subject">{properties.subject[0]}, </span>
-                <span id="subject">{properties.subject[1]}, </span>
-                <span id="subject">{properties.subject[2]} </span>
+                <span id="subject">{properties.worksToGetSubjects[0].subject[0]}, </span>
+                <span id="subject">{properties.worksToGetSubjects[1].subject[0]}, </span>
+                <span id="subject">{properties.worksToGetSubjects[2].subject[0]} </span>
             </h3>
         </div>
     )
