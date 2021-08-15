@@ -11,7 +11,7 @@ export default function SingleBook(props) {
         </div> 
         : 
         <div>
-            <BookHeader subject = {props.subject}/>
+            <BookHeader subject = {props.subject} />
             <BookCard custumBookCardStyle = {cardStyleSingleBook}
             title ={props.title}
             author = {props.author}

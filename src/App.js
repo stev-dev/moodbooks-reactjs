@@ -16,6 +16,16 @@ function App() {
   const [bookeditionKey, setBookeditionKey] = useState("")
   const [subjectsSearchData, setSubjectsSearchData] = useState()
 
+  const flushStateData = () => {
+    setBooktitle('')
+    setBookAuthor('')
+    setFirstPublishYear('')
+    setSubject('')
+    setBookIsbn('')
+    setBookeditionKey('')
+  }
+
+
   const makeQueryCallable = query => query.trim().split(" ").join("+")
 
   const goSearch = () => {  
@@ -32,6 +42,7 @@ function App() {
       setBookeditionKey(data.docs[0].cover_edition_key)
     }) 
     searchBar.value = ""
+    flushStateData()
   }
 
   const  makeCategoryQueryCallable = str => str.split(" ").join("_")
@@ -47,14 +58,7 @@ function App() {
     })
   }
 
-  const flushStateData = () => {
-    setBooktitle('')
-    setBookAuthor('')
-    setFirstPublishYear('')
-    setSubject('')
-    setBookIsbn('')
-    setBookeditionKey('')
-  }
+  
   return (
     <div>
       <Router>
@@ -69,12 +73,10 @@ function App() {
           publishYear = {firstPublishYear} 
           subject = {subject}
           isbn = {bookIsbn}
-          editionKey = {bookeditionKey}
-          flushData = {flushStateData}/>}/>
+          editionKey = {bookeditionKey}/>}/>
 
           <Route path="/booksBySubject" render={()=><BooksBySubject 
-          booksData = {subjectsSearchData}
-          flushData = {flushStateData}/>}/>
+          booksData = {subjectsSearchData}/>}/>
         </Switch>
       </Router>
     </div>

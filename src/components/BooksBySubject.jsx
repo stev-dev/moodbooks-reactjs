@@ -5,14 +5,14 @@ import logo from '../res/circle-physic.gif'
 
 export default function BooksBySubject(props) {
 
-    const fetchForIsbnReasons = async (searchVal) => {
-        let isbn = ""
-        const query = searchVal.trim().split(" ").join("+")
-        const resp = await fetch("http://openlibrary.org/search.json?q="+query)
-        const data = await resp.json()
-        console.log(data.docs[0].isbn[0])
-        return data.docs[0].isbn[0]
-    }
+    // const fetchForIsbnReasons = async (searchVal) => {
+    //     let isbn = ""
+    //     const query = searchVal.trim().split(" ").join("+")
+    //     const resp = await fetch("http://openlibrary.org/search.json?q="+query)
+    //     const data = await resp.json()
+    //     console.log(data.docs[0].isbn[0])
+    //     return data.docs[0].isbn[0]
+    // }
     console.log(props)
 
     return (
@@ -23,7 +23,7 @@ export default function BooksBySubject(props) {
         : 
 
         <div>
-            <BookHeader subject = {props.booksData.works[0].subject}/>
+            <BookHeader subject = {props.booksData.works[0].subject} />
 
             <div style={booksCardHolder}>
                 {props.booksData.works.map((elem, indx) => 
@@ -32,7 +32,7 @@ export default function BooksBySubject(props) {
                 author = {elem.authors[0].name}
                 editionKey = {elem.cover_edition_key}
                 publishYear = {elem.first_publish_year === null? "not available": elem.first_publish_year}
-                isbn = {fetchForIsbnReasons(elem.title)}/>
+                />
                 )}
             </div>
         </div>
