@@ -34,10 +34,8 @@ function App() {
     searchBar.value = ""
   }
 
-  function makeCategoryQueryCallable (str){
-    return str.split(" ").join("_")
-  }
-  function categorySearch (query){
+  const  makeCategoryQueryCallable = str => str.split(" ").join("_")
+  const categorySearch = query =>{
     // let theCategorySelected = event.currentTarget.innerText.toLowerCase()
     // let finalquery = makeCategoryQueryCallable(theCategorySelected)
     let finalquery = makeCategoryQueryCallable(query.toLowerCase())
@@ -49,6 +47,14 @@ function App() {
     })
   }
 
+  const flushStateData = () => {
+    setBooktitle('')
+    setBookAuthor('')
+    setFirstPublishYear('')
+    setSubject('')
+    setBookIsbn('')
+    setBookeditionKey('')
+  }
   return (
     <div>
       <Router>
@@ -63,10 +69,12 @@ function App() {
           publishYear = {firstPublishYear} 
           subject = {subject}
           isbn = {bookIsbn}
-          editionKey = {bookeditionKey}/>}/>
+          editionKey = {bookeditionKey}
+          flushData = {flushStateData}/>}/>
 
           <Route path="/booksBySubject" render={()=><BooksBySubject 
-          booksData = {subjectsSearchData}/>}/>
+          booksData = {subjectsSearchData}
+          flushData = {flushStateData}/>}/>
         </Switch>
       </Router>
     </div>

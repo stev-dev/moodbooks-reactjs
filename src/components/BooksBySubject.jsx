@@ -4,10 +4,17 @@ import BookHeader from './BookHeader'
 import logo from '../res/circle-physic.gif'
 
 export default function BooksBySubject(props) {
-        
-    // const imgSrc =  `https://covers.openlibrary.org/b/isbn/${bookData.isbn}-M.jpg`
-    // const bookLinkOpenLibrary = `https://openlibrary.org/books/${bookData.editionKey}`
+
+    const fetchForIsbnReasons = async (searchVal) => {
+        let isbn = ""
+        const query = searchVal.trim().split(" ").join("+")
+        const resp = await fetch("http://openlibrary.org/search.json?q="+query)
+        const data = await resp.json()
+        console.log(data.docs[0].isbn[0])
+        return data.docs[0].isbn[0]
+    }
     console.log(props)
+
     return (
         props.booksData === undefined ? 
         <div style={{textAlign:'center', marginTop:'15%'}}>
@@ -22,10 +29,10 @@ export default function BooksBySubject(props) {
                 {props.booksData.works.map((elem, indx) => 
                 <BookCard key = {indx} custumBookCardStyle = {cardStylemultipleBooks}
                 title ={elem.title}
-                author = {elem.authors.name}
-                editionKey = {"need further work"}
-                publishYear = {"need further work"}
-                isbn = {"need further work"}/>
+                author = {elem.authors[0].name}
+                editionKey = {elem.cover_edition_key}
+                publishYear = {elem.first_publish_year === null? "not available": elem.first_publish_year}
+                isbn = {fetchForIsbnReasons(elem.title)}/>
                 )}
             </div>
         </div>
@@ -48,3 +55,4 @@ const cardStylemultipleBooks = {
     borderRadius: '10px',
     textAlign: 'center'
 }
+
