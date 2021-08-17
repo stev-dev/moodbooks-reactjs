@@ -47,8 +47,6 @@ function App() {
 
   const  makeCategoryQueryCallable = str => str.split(" ").join("_")
   const categorySearch = query =>{
-    // let theCategorySelected = event.currentTarget.innerText.toLowerCase()
-    // let finalquery = makeCategoryQueryCallable(theCategorySelected)
     let finalquery = makeCategoryQueryCallable(query.toLowerCase())
 
     fetch("https://openlibrary.org/subjects/"+finalquery+".json")

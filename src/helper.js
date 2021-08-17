@@ -21,8 +21,4 @@ let searchStr = `>Science</button>
 
 let matches = [...searchStr.match(htmlContentRegex)]
 let htmlTags = matches.map(elem => elem.slice(1,-1))
-
 export default htmlTags
-//let htmlContentValues = matches.map(elem => elem.slice(1,-1))
-//console.log(htmlContentValues)
-//console.log(matches[0].slice(1,-1))

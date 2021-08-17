@@ -2,27 +2,8 @@ import React from 'react'
 import BookCard from './BookCard'
 import BookHeader from './BookHeader'
 import logo from '../res/circle-physic.gif'
-import { useEffect, useState } from 'react'
 
 export default function BooksBySubject(props) {
-
-    // const fetchForIsbnReasons = async (searchVal) => {
-    //     let isbn = ""
-    //     const query = searchVal.trim().split(" ").join("+")
-    //     const resp = await fetch("http://openlibrary.org/search.json?q="+query)
-    //     const data = await resp.json()
-    //     console.log(data.docs[0].isbn[0])
-    //     return data.docs[0].isbn[0]
-    // }
-    const [savedprops, setSavedprops] = useState(props)
-
-    useEffect(()=>{
-        setSavedprops(props)
-    },[props])
-
-    //console.log(props.booksData.works[0])
-    console.log(savedprops)
-
 
     return (
         props.booksData === undefined? 
@@ -30,9 +11,8 @@ export default function BooksBySubject(props) {
             <img src={logo} alt="loading..." style={{maxWidth:'90px',maxHeight:'90px'}}/>
         </div> 
         : 
-
         <div>
-            <BookHeader worksToGetSubjects = {props.booksData.works} />
+            <BookHeader subject = {props.booksData.works[0].subject} />
 
             <div style={booksCardHolder}>
                 {props.booksData.works.map((elem, indx) => 

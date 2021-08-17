@@ -29,7 +29,6 @@ export default function JumboSection(props) {
             <h2 id="whatToReadNext">Discover what to read next ...</h2>
             <div className="search-container">
                 <input type="text" id ="query-area" placeholder="type the title of the book you want to read"/>
-                {/*<button id="submit" onClick={props.search}>&#x1f50D;</button>*/}
             </div>
         </div>
     )

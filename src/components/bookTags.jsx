@@ -26,7 +26,7 @@ export default function BookTags(props) {
     })
 
     return (
-        <div id="tags-box">
+        <div id="tags-box" style={{marginBottom:'15px'}}>
             {tags.map((tag, indx) => <button key={indx} className="tag" id={"tag"+indx} >{tag}</button>)}
         </div>
     )

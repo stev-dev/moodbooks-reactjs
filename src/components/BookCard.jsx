@@ -3,9 +3,7 @@ import '../bookStyle.css'
 
 export default function SingleBook(props) {
     const [bookData, setBookData] = useState(props)
-    //this book data object is what we will use and pull data from and use it in the elements 
-    //bellow (ex: instead of props.title we will use bookdata.title). to make sure data is up to date.
-
+    
     useEffect(()=>{
         setBookData(props)
     },[props])

@@ -8,6 +8,8 @@ export default function BookHeader(props) {
         setProperties(props)
     }, [props])
 
+    
+
     return (
         <div>
             <header style={headerItems}>
@@ -19,10 +21,10 @@ export default function BookHeader(props) {
                 <h3 id="moodbooksLogo" style = {moodbooksLogo}>Moodbooks</h3>
                 <div id="rightToHelpCenterLogo" style={{width:'80px'}}></div>
             </header>
-            <h3 style={BookSubjectStyles}>subjects: 
-                <span id="subject">{properties.worksToGetSubjects[0].subject[0]}, </span>
-                <span id="subject">{properties.worksToGetSubjects[1].subject[0]}, </span>
-                <span id="subject">{properties.worksToGetSubjects[2].subject[0]} </span>
+            <h3 style={BookSubjectStyles}>subjects:&nbsp;
+                <span id="subject">{properties.subject[0]}, </span>
+                <span id="subject">{properties.subject[1]}, </span>
+                <span id="subject">{properties.subject[2]} </span>
             </h3>
         </div>
     )

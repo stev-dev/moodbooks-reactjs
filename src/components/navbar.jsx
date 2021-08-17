@@ -27,7 +27,7 @@ const ulStyles = {
 
 
 const liStyle = {
-    marginLeft: '1.7rem',//i did this calculation befor h_h 1.7*16,/*1rem = 1rem equals the font size of the html element (16px)*/
+    marginLeft: '1.7rem',
     fontSize: 'large',
     fontWeight: 'bold',
     fontFamily: 'monospace courier '
