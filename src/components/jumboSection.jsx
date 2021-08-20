@@ -1,6 +1,6 @@
 import React, {useEffect}from 'react'
 import { useHistory } from 'react-router';
-import '../App.css'
+import '../css/App.css'
 
 export default function JumboSection(props) {
     const history = useHistory()

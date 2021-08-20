@@ -1,5 +1,5 @@
 import React from 'react'
-import tags from '../helper'
+import tags from '../js/helper'
 import { useEffect } from 'react'
 import { useHistory } from 'react-router'
 

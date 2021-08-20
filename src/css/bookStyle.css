@@ -3,7 +3,8 @@
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-}.backBtn,#readBtn {
+}
+.backBtn,#readBtn {
     cursor: pointer;
     background: none;
     border: 4px solid #fff;
@@ -15,12 +16,14 @@
     position: relative;
     text-transform: uppercase;
     border: 2px solid rgb(61, 172, 231);
-}.backBtn::before,.backBtn::after {
+}
+.backBtn::before,.backBtn::after {
     background: rgb(61, 172, 231);
     content: '';
     position: absolute;
     z-index: -1;
-}.backBtn:hover {
+}
+.backBtn:hover {
     color: #ffffff;
 }
 .backBtn::after {
@@ -54,10 +57,7 @@ width: 100%;
     width: 30%;
     text-align: center;
 }
-#booksContainer:hover{
-    box-Shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
-    transform: scale(1.03);
-}
+
 #bookOuterContainer{
     margin: auto;
     display: flex;
